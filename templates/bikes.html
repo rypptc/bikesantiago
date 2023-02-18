@@ -1,0 +1,66 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>bikesantiago</title>
+    <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/Data-Table-styles.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/Data-Table.css' %}">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-light navbar-expand-md">
+        <div class="container-fluid"><a class="navbar-brand" href="#">Bike Santiago</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="navbar-nav"></ul>
+            </div>
+        </div>
+    </nav><table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Post Code</th>
+                <th>Latitude</th>
+                <th>Longitud</th>
+                <th>Free bikes</th>
+                <th>Normal Bikes</th>
+                <th>Slots</th>
+                <th>Empty Slots</th>
+                <th>Payment</th>
+                <th>Payment Terminal</th>
+                <th>Last Updated</th>
+                <th>Timestamp</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for station in stations %}
+                <tr>
+                    <th>{{ station.name }}</th>
+                    <th>{{ station.address }}</th>
+                    <th>{{ station.post_code }}</th>
+                    <th>{{ station.latitude }}</th>
+                    <th>{{ station.longitude }}</th>
+                    <th>{{ station.free_bikes }}</th>
+                    <th>{{ station.normal_bikes }}</th>
+                    <th>{{ station.slots }}</th>
+                    <th>{{ station.empty_slots }}</th>
+                    <th>{{ station.payment }}</th>
+                    <th>{{ station.payment_terminal }}</th>
+                    <th>{{ station.last_updated }}</th>
+                    <th>{{ station.timestamp }}</th>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <script src="{% static 'assets/bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap.min.js"></script>
+</body>
+
+</html>

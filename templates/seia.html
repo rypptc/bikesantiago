@@ -1,0 +1,60 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>bikesantiago</title>
+    <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/Data-Table-styles.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/Data-Table.css' %}">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-light navbar-expand-md">
+        <div class="container-fluid"><a class="navbar-brand" href="#">Sistema de Evaluación de Impacto Ambiental</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="navbar-nav"></ul>
+            </div>
+        </div>
+    </nav><table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Nombre</th>
+                <th>Tipo</th>
+                <th>Región</th>
+                <th>Tipología</th>
+                <th>Titular</th>
+                <th>Inversión MM$</th>
+                <th>Fecha Ingreso</th>
+                <th>Estado</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for proyecto in proyectos %}
+                <tr>
+                    <th>{{ proyecto.id }}</th>
+                    <th>{{ proyecto.nombre }}</th>
+                    <th>{{ proyecto.tipo }}</th>
+                    <th>{{ proyecto.region }}</th>
+                    <th>{{ proyecto.tipologia }}</th>
+                    <th>{{ proyecto.titular }}</th>
+                    <th>{{ proyecto.inversion }}</th>
+                    <th>{{ proyecto.ingreso }}</th>
+                    <th>{{ proyecto.estado }}</th>
+
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+    <script src="{% static 'assets/bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap.min.js"></script>
+</body>
+
+</html>
